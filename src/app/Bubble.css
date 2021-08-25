@@ -1,0 +1,15 @@
+.bubble {
+    display: flex;
+    width: 150px;
+    height: 150px;
+    background-color: #8bee88;
+    border-radius: 50%;
+}
+
+.text {
+margin: auto;
+position: relative;
+top: -35%;
+color: red;
+}
+
