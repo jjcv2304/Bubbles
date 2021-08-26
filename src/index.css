@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+.App{
+  display: flex;
+  align-items: center;
+}
 .draggable {
   /* just to size it to content */
   display: inline-block;

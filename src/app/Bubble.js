@@ -9,8 +9,7 @@ export default class Bubble extends React.Component {
 
     _move = (x, y) => this.setState({x, y});
 
-    // you can implement grid snapping logic or whatever here
-    /*
+    /* grid logic
     _move = (x, y) => this.setState({
         x: ~~((x - 5) / 10) * 10 + 5,
         y: ~~((y - 5) / 10) * 10 + 5,
@@ -19,16 +18,36 @@ export default class Bubble extends React.Component {
 
     render() {
         const {x, y} = this.state;
-
+        function GetCaloriesColor(calories) {
+            if (calories > 600 && calories < 700) {
+                return "orange";
+            } else if (calories > 700) {
+                return 'red';
+            } else {
+                return '#8bee88';
+            }
+        }
         const style = {
-            width: `${this.props.calories}px`,
-            height: `${this.props.calories}px`,
+            width: `${this.props.calories * 0.75}px`,
+            height: `${this.props.calories * 0.75}px`,
+            backgroundColor: GetCaloriesColor(this.props.calories)
         };
+        const minimumSizeForExtendedProperties = 400;
 
         return (
             <Draggable x={x} y={y} onMove={this._move}>
-                <div className="bubble" style={style} >
-                    <p className="text"> {this.props.name} </p>
+                <div className="bubble" style={style}>
+                    <div className="bubble-content">
+                        <div className="bubble-title"> {this.props.name} </div>
+                        <div className="bubble-calories"> {this.props.calories} </div>
+                        {parseInt(this.props.calories) > minimumSizeForExtendedProperties && (
+                            <div className="bubble-macronutrients">
+                                <div className="bubble-macronutrients-item">P:{this.props.macro_p}%</div>
+                                <div className="bubble-macronutrients-item">H:{this.props.macro_h}%</div>
+                                <div className="bubble-macronutrients-item">F:{this.props.macro_f}%</div>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </Draggable>
         );

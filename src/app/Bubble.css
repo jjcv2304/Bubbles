@@ -1,15 +1,32 @@
 .bubble {
-    display: flex;
     width: 150px;
     height: 150px;
     background-color: #8bee88;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+
 }
 
-.text {
-margin: auto;
-position: relative;
-top: -35%;
-color: red;
+.bubble-content {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.bubble-title{
+    font-size: xx-large;
+}
+.bubble-calories{
+    font-size: xx-large;
+}
+.bubble-macronutrients{
+    display: flex;
+    font-size: large;
+}
+.bubble-macronutrients-item{
+    margin: 15px;
 }
 
